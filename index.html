@@ -59,17 +59,7 @@ summary{cursor:pointer;font-weight:bold;color:#1F4E79}
 
 <h2>3. Exemples de questions d'explication</h2>
 
-<h3>Exemple A — PUT et PATCH (avec un exemple)</h3>
-<p>Un utilisateur possède ce profil dans la base de données :</p>
-<pre><code>{ "nom": "Ali", "courriel": "ali@exemple.com", "age": 20 }</code></pre>
-<p>Il veut seulement changer son âge à 21. Expliquez la différence entre une requête <code>PUT</code> et une requête <code>PATCH</code> pour faire ce changement, et dites laquelle vous choisiriez.</p>
-<details><summary>Voir une réponse attendue</summary>
-<p><strong>PUT</strong> remplace la ressource au complet. Il faut donc envoyer tout le profil, avec <code>nom</code>, <code>courriel</code> et <code>age: 21</code>. Si on n'envoie que l'âge, les autres champs risquent d'être perdus.</p>
-<p><strong>PATCH</strong> ne modifie que les champs envoyés. On envoie seulement <code>{ "age": 21 }</code> et le reste du profil ne change pas.</p>
-<p><strong>Choix :</strong> PATCH, car on ne modifie qu'un seul champ et on n'a pas besoin de renvoyer tout le profil.</p>
-</details>
-
-<h3>Exemple B — Module 01</h3>
+<h3>Exemple — Module 01</h3>
 <p>Dans une fonction <code>async</code>, que se passe-t-il si on oublie le mot-clé <code>await</code> devant un appel à une fonction qui retourne une promesse ? Donnez un exemple de ce qui peut arriver.</p>
 <details><summary>Voir une réponse attendue</summary>
 <p>La variable contient la promesse elle-même, et non la valeur attendue. Par exemple, <code>texte.toUpperCase()</code> peut échouer, ou un <code>console.log</code> affiche <code>Promise { &lt;pending&gt; }</code> au lieu du contenu du fichier.</p>
