@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Révision — Évaluation sommative 1</title>
+<style>
+body{font-family:Calibri,Arial,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem;color:#222;line-height:1.55;background:#fff}
+h1{color:#1F4E79;border-bottom:3px solid #1F4E79;padding-bottom:.3rem}
+h2{color:#2E5A88;margin-top:2.2rem}
+h3{color:#1F4E79;margin-top:1.6rem}
+pre{background:#f1f1f1;padding:.8rem;border-radius:6px;overflow-x:auto}
+code{font-family:Consolas,monospace;font-size:.95em}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #bbb;padding:.4rem .6rem;text-align:left}
+th{background:#D9E2F3}
+details{background:#f7f9fc;border:1px solid #c9d6ea;border-radius:6px;padding:.6rem .9rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:bold;color:#1F4E79}
+.note{background:#fff8e1;border-left:4px solid #f0b400;padding:.6rem .9rem;margin:1rem 0}
+</style>
+</head>
+<body>
+
+<h1>Révision — Évaluation sommative 1</h1>
+<p>29990 IFM — Introduction à la programmation de serveurs Web · Modules 01 à 04</p>
+
+<div class="note">Ce site présente la <strong>structure</strong> de l'évaluation et des <strong>exemples nouveaux</strong> pour réviser. Ce ne sont pas les questions de l'examen.</div>
+
+<h2>1. Structure de l'évaluation</h2>
+<table>
+<tr><th>Partie</th><th>Ce que c'est</th><th>Points</th></tr>
+<tr><td>A — QCM</td><td>15 questions à une seule bonne réponse</td><td>15 (1 pt chacune)</td></tr>
+<tr><td>B — Explications</td><td>5 questions, quelques phrases claires avec un exemple quand c'est demandé</td><td>25 (5 pts chacune)</td></tr>
+<tr><td>C — Programmation</td><td>3 problèmes en plusieurs étapes à écrire au complet, dont une partie créative</td><td>60 (20 pts chacun)</td></tr>
+<tr><th colspan="2">Total</th><th>100</th></tr>
+</table>
+<ul>
+<li><strong>Durée :</strong> 180 minutes.</li>
+<li><strong>Modules couverts :</strong> 01 (Node.js et asynchrone), 02 (Express et middlewares), 03 (HTTP, JSON, API et routes), 04 (fetch et débogage).</li>
+<li><strong>Conditions :</strong> examen dans LockDown Browser. Vous n'exécutez pas votre code : vous l'écrivez dans une boîte de texte. Seul le site des notes de cours est accessible en plus de l'examen.</li>
+</ul>
+
+<h2>2. Exemples de QCM</h2>
+
+<h3>Exemple 1 — Module 02</h3>
+<p>Quelle commande lance le serveur en mode développement avec <code>nodemon</code>, si le script <code>dev</code> est défini dans <code>package.json</code> ?</p>
+<p>a) <code>npm start</code> &nbsp; b) <code>npm run dev</code> &nbsp; c) <code>node dev</code> &nbsp; d) <code>npm i dev</code></p>
+<details><summary>Voir la réponse</summary><p><strong>b)</strong> <code>npm run dev</code> lance le script <code>dev</code> défini dans <code>package.json</code>.</p></details>
+
+<h3>Exemple 2 — Module 03</h3>
+<p>Quel code de statut indique que la requête est mal formée ?</p>
+<p>a) 201 &nbsp; b) 400 &nbsp; c) 404 &nbsp; d) 500</p>
+<details><summary>Voir la réponse</summary><p><strong>b) 400</strong> (Bad Request) : requête malformée ou invalide.</p></details>
+
+<h3>Exemple 3 — Module 04</h3>
+<p>Quelle propriété de l'objet retourné par <code>fetch()</code> contient le code de statut HTTP ?</p>
+<p>a) <code>response.body</code> &nbsp; b) <code>response.status</code> &nbsp; c) <code>response.type</code> &nbsp; d) <code>response.headers</code></p>
+<details><summary>Voir la réponse</summary><p><strong>b)</strong> <code>response.status</code> contient le code (ex. 200, 404). <code>response.ok</code> est vrai pour les codes 2xx.</p></details>
+
+<h2>3. Exemples de questions d'explication</h2>
+
+<h3>Exemple A — PUT et PATCH (avec un exemple)</h3>
+<p>Un utilisateur possède ce profil dans la base de données :</p>
+<pre><code>{ "nom": "Ali", "courriel": "ali@exemple.com", "age": 20 }</code></pre>
+<p>Il veut seulement changer son âge à 21. Expliquez la différence entre une requête <code>PUT</code> et une requête <code>PATCH</code> pour faire ce changement, et dites laquelle vous choisiriez.</p>
+<details><summary>Voir une réponse attendue</summary>
+<p><strong>PUT</strong> remplace la ressource au complet. Il faut donc envoyer tout le profil, avec <code>nom</code>, <code>courriel</code> et <code>age: 21</code>. Si on n'envoie que l'âge, les autres champs risquent d'être perdus.</p>
+<p><strong>PATCH</strong> ne modifie que les champs envoyés. On envoie seulement <code>{ "age": 21 }</code> et le reste du profil ne change pas.</p>
+<p><strong>Choix :</strong> PATCH, car on ne modifie qu'un seul champ et on n'a pas besoin de renvoyer tout le profil.</p>
+</details>
+
+<h3>Exemple B — Module 01</h3>
+<p>Dans une fonction <code>async</code>, que se passe-t-il si on oublie le mot-clé <code>await</code> devant un appel à une fonction qui retourne une promesse ? Donnez un exemple de ce qui peut arriver.</p>
+<details><summary>Voir une réponse attendue</summary>
+<p>La variable contient la promesse elle-même, et non la valeur attendue. Par exemple, <code>texte.toUpperCase()</code> peut échouer, ou un <code>console.log</code> affiche <code>Promise { &lt;pending&gt; }</code> au lieu du contenu du fichier.</p>
+</details>
+
+<h2>4. Exemple de question de programmation en plusieurs étapes</h2>
+<p>Le problème suivant a la même forme que ceux de l'examen : il est découpé en étapes. Vous devez écrire le code complet de chaque étape.</p>
+
+<h3>Problème — Liste de chansons</h3>
+<p><strong>Étape 1 — Couche de données (<code>model/chansons.js</code>).</strong> Écrivez un tableau privé de chansons (chaque chanson est une chaîne de caractères), et exportez quatre fonctions :</p>
+<ul>
+<li><code>getChansons()</code> : retourne le tableau.</li>
+<li><code>addChanson(titre)</code> : ajoute une chanson à la fin.</li>
+<li><code>updateChanson(index, titre)</code> : remplace la chanson à la position <code>index</code>.</li>
+<li><code>deleteChanson(index)</code> : supprime la chanson à la position <code>index</code>.</li>
+</ul>
+
+<p><strong>Étape 2 — Routes (<code>server.js</code>).</strong> Écrivez les routes suivantes, en utilisant les fonctions de l'étape 1 :</p>
+<ul>
+<li><code>GET /api/chansons</code> : retourne la liste (code 200).</li>
+<li><code>POST /api/chansons</code> : ajoute le titre envoyé dans le corps (code 201).</li>
+<li><code>PUT /api/chansons</code> : modifie la chanson dont la position et le nouveau titre sont dans le corps (code 200).</li>
+<li><code>DELETE /api/chansons</code> : supprime la chanson dont la position est dans le corps (code 200).</li>
+</ul>
+
+<p><strong>Étape 3 — Partie créative.</strong> Ajoutez une route de votre choix, utile pour une liste de chansons (par exemple, compter les chansons, ou chercher une chanson par son titre). Expliquez en une phrase ce que fait votre route et le code de statut que vous retournez.</p>
+
+<details><summary>Voir la solution de référence (étapes 1 et 2)</summary>
+<pre><code>// model/chansons.js
+let chansons = [];
+
+export function getChansons() {
+    return chansons;
+}
+
+export function addChanson(titre) {
+    chansons.push(titre);
+}
+
+export function updateChanson(index, titre) {
+    chansons[index] = titre;
+}
+
+export function deleteChanson(index) {
+    chansons.splice(index, 1);
+}
+
+// server.js
+import 'dotenv/config';
+import express, { json } from 'express';
+import { getChansons, addChanson, updateChanson, deleteChanson } from './model/chansons.js';
+
+const app = express();
+app.use(json());
+
+app.get('/api/chansons', (request, response) => {
+    response.status(200).json(getChansons());
+});
+
+app.post('/api/chansons', (request, response) => {
+    addChanson(request.body.titre);
+    response.status(201).end();
+});
+
+app.put('/api/chansons', (request, response) => {
+    updateChanson(request.body.index, request.body.titre);
+    response.status(200).end();
+});
+
+app.delete('/api/chansons', (request, response) => {
+    deleteChanson(request.body.index);
+    response.status(200).end();
+});
+
+app.listen(process.env.PORT);</code></pre>
+</details>
+
+<h2>5. Conseils de révision</h2>
+<ul>
+<li>Refaites les exemples du cours sans les copier : c'est ce qui vous prépare aux problèmes nouveaux.</li>
+<li>Pour chaque route, demandez-vous : quelle méthode HTTP, quel chemin, où sont les données (query ou body), et quel code de statut ?</li>
+<li>Pour les explications, donnez toujours un exemple concret quand la question le demande.</li>
+<li>Lisez votre code à voix haute : si vous ne pouvez pas expliquer une ligne, revoyez la notion.</li>
+</ul>
+
+</body>
+</html>
