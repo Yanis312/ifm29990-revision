@@ -7,8 +7,8 @@
 <style>
 body{font-family:Calibri,Arial,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem;color:#222;line-height:1.55;background:#fff}
 h1{color:#1F4E79;border-bottom:3px solid #1F4E79;padding-bottom:.3rem}
-h2{color:#2E5A88;margin-top:2.2rem}
-h3{color:#1F4E79;margin-top:1.6rem}
+h2{color:#2E5A88;margin-top:2.4rem;border-bottom:1px solid #c9d6ea;padding-bottom:.2rem}
+h3{color:#1F4E79;margin-top:1.4rem}
 pre{background:#f1f1f1;padding:.8rem;border-radius:6px;overflow-x:auto}
 code{font-family:Consolas,monospace;font-size:.95em}
 table{border-collapse:collapse;width:100%}
@@ -17,20 +17,22 @@ th{background:#D9E2F3}
 details{background:#f7f9fc;border:1px solid #c9d6ea;border-radius:6px;padding:.6rem .9rem;margin:.6rem 0}
 summary{cursor:pointer;font-weight:bold;color:#1F4E79}
 .note{background:#fff8e1;border-left:4px solid #f0b400;padding:.6rem .9rem;margin:1rem 0}
+nav a{margin-right:1rem}
 </style>
 </head>
 <body>
 
 <h1>Révision — Évaluation sommative 1</h1>
 <p>29990 IFM — Introduction à la programmation de serveurs Web · Modules 01 à 04</p>
+<nav><a href="#g0090">Groupe 0090</a><a href="#g0040">Groupe 0040</a></nav>
 
-<div class="note">Ce site présente la <strong>structure</strong> de l'évaluation et des <strong>exemples nouveaux</strong> pour réviser. Ce ne sont pas les questions de l'examen.</div>
+<div class="note">Cette page présente la <strong>structure</strong> de l'évaluation et des <strong>exemples nouveaux</strong> pour réviser. Ce ne sont pas les questions de l'examen. Les réponses sont cachées : essayez d'abord, puis cliquez pour vérifier.</div>
 
-<h2>1. Structure de l'évaluation</h2>
+<h2>Structure de l'évaluation</h2>
 <table>
 <tr><th>Partie</th><th>Ce que c'est</th><th>Points</th></tr>
 <tr><td>A — QCM</td><td>15 questions à une seule bonne réponse</td><td>15 (1 pt chacune)</td></tr>
-<tr><td>B — Explications</td><td>5 questions, quelques phrases claires avec un exemple quand c'est demandé</td><td>25 (5 pts chacune)</td></tr>
+<tr><td>B — Explications</td><td>5 questions, quelques phrases claires, avec un exemple quand la question le demande</td><td>25 (5 pts chacune)</td></tr>
 <tr><td>C — Programmation</td><td>3 problèmes en plusieurs étapes à écrire au complet, dont une partie créative</td><td>60 (20 pts chacun)</td></tr>
 <tr><th colspan="2">Total</th><th>100</th></tr>
 </table>
@@ -40,53 +42,54 @@ summary{cursor:pointer;font-weight:bold;color:#1F4E79}
 <li><strong>Conditions :</strong> examen dans LockDown Browser. Vous n'exécutez pas votre code : vous l'écrivez dans une boîte de texte. Seul le site des notes de cours est accessible en plus de l'examen.</li>
 </ul>
 
-<h2>2. Exemples de QCM</h2>
+<!-- ==================== GROUPE 0090 ==================== -->
+<h2 id="g0090">Groupe 0090</h2>
 
-<h3>Exemple 1 — Module 02</h3>
-<p>Quelle commande lance le serveur en mode développement avec <code>nodemon</code>, si le script <code>dev</code> est défini dans <code>package.json</code> ?</p>
-<p>a) <code>npm start</code> &nbsp; b) <code>npm run dev</code> &nbsp; c) <code>node dev</code> &nbsp; d) <code>npm i dev</code></p>
-<details><summary>Voir la réponse</summary><p><strong>b)</strong> <code>npm run dev</code> lance le script <code>dev</code> défini dans <code>package.json</code>.</p></details>
+<h3>A. QCM (exemples)</h3>
 
-<h3>Exemple 2 — Module 03</h3>
-<p>Quel code de statut indique que la requête est mal formée ?</p>
-<p>a) 201 &nbsp; b) 400 &nbsp; c) 404 &nbsp; d) 500</p>
-<details><summary>Voir la réponse</summary><p><strong>b) 400</strong> (Bad Request) : requête malformée ou invalide.</p></details>
+<p><strong>1.</strong> Quelle ligne importe la fonction <code>readFile</code> depuis le module de fichiers qui retourne des promesses ?</p>
+<p>a) <code>import { readFile } from 'node:fs/promises';</code><br>b) <code>const readFile = require('fs');</code><br>c) <code>import { readFile } from 'node:path';</code><br>d) <code>import readFile from 'readline';</code></p>
+<details><summary>Voir la réponse</summary><p><strong>a)</strong> <code>node:fs/promises</code> fournit des versions qui retournent des promesses. Le <code>require</code> est du CommonJS, interdit dans ce cours.</p></details>
 
-<h3>Exemple 3 — Module 04</h3>
-<p>Quelle propriété de l'objet retourné par <code>fetch()</code> contient le code de statut HTTP ?</p>
-<p>a) <code>response.body</code> &nbsp; b) <code>response.status</code> &nbsp; c) <code>response.type</code> &nbsp; d) <code>response.headers</code></p>
-<details><summary>Voir la réponse</summary><p><strong>b)</strong> <code>response.status</code> contient le code (ex. 200, 404). <code>response.ok</code> est vrai pour les codes 2xx.</p></details>
+<p><strong>2.</strong> Dans quel fichier sont listées les dépendances d'un projet Node.js ?</p>
+<p>a) <code>server.js</code> &nbsp; b) <code>.gitignore</code> &nbsp; c) <code>package.json</code> &nbsp; d) <code>index.html</code></p>
+<details><summary>Voir la réponse</summary><p><strong>c)</strong> <code>package.json</code>, dans la section <code>dependencies</code>.</p></details>
 
-<h2>3. Exemples de questions d'explication</h2>
+<p><strong>3.</strong> Que fait la ligne <code>import 'dotenv/config';</code> au début de <code>server.js</code> ?</p>
+<p>a) Elle crée le serveur. &nbsp; b) Elle charge les variables du fichier <code>.env</code>. &nbsp; c) Elle installe les paquets. &nbsp; d) Elle ferme le serveur.</p>
+<details><summary>Voir la réponse</summary><p><strong>b)</strong> Elle charge les variables du fichier <code>.env</code> dans <code>process.env</code>, d'où l'importance de la mettre au début.</p></details>
 
-<h3>Exemple — Module 01</h3>
-<p>Dans une fonction <code>async</code>, que se passe-t-il si on oublie le mot-clé <code>await</code> devant un appel à une fonction qui retourne une promesse ? Donnez un exemple de ce qui peut arriver.</p>
-<details><summary>Voir une réponse attendue</summary>
-<p>La variable contient la promesse elle-même, et non la valeur attendue. Par exemple, <code>texte.toUpperCase()</code> peut échouer, ou un <code>console.log</code> affiche <code>Promise { &lt;pending&gt; }</code> au lieu du contenu du fichier.</p>
-</details>
+<p><strong>4.</strong> Quel code de statut signifie « non autorisé, authentification requise » ?</p>
+<p>a) 200 &nbsp; b) 401 &nbsp; c) 301 &nbsp; d) 500</p>
+<details><summary>Voir la réponse</summary><p><strong>b) 401</strong> (Unauthorized).</p></details>
 
-<h2>4. Exemple de question de programmation en plusieurs étapes</h2>
-<p>Le problème suivant a la même forme que ceux de l'examen : il est découpé en étapes. Vous devez écrire le code complet de chaque étape.</p>
+<p><strong>5.</strong> Dans les outils de développement du navigateur, quel onglet permet de voir les requêtes HTTP envoyées par la page ?</p>
+<p>a) Elements &nbsp; b) Network &nbsp; c) Console &nbsp; d) Sources</p>
+<details><summary>Voir la réponse</summary><p><strong>b) Network</strong>, qui liste toutes les requêtes avec leur méthode, leur URL, leurs données et leur statut.</p></details>
 
-<h3>Problème — Liste de chansons</h3>
-<p><strong>Étape 1 — Couche de données (<code>model/chansons.js</code>).</strong> Écrivez un tableau privé de chansons (chaque chanson est une chaîne de caractères), et exportez quatre fonctions :</p>
-<ul>
-<li><code>getChansons()</code> : retourne le tableau.</li>
-<li><code>addChanson(titre)</code> : ajoute une chanson à la fin.</li>
-<li><code>updateChanson(index, titre)</code> : remplace la chanson à la position <code>index</code>.</li>
-<li><code>deleteChanson(index)</code> : supprime la chanson à la position <code>index</code>.</li>
-</ul>
+<p><strong>6.</strong> Avec <code>fetch()</code>, quelle option permet de choisir la méthode HTTP ?</p>
+<p>a) <code>type</code> &nbsp; b) <code>method</code> &nbsp; c) <code>verb</code> &nbsp; d) <code>action</code></p>
+<details><summary>Voir la réponse</summary><p><strong>b) method</strong>, par exemple <code>fetch('/api/salles', { method: 'PATCH' })</code>.</p></details>
 
-<p><strong>Étape 2 — Routes (<code>server.js</code>).</strong> Écrivez les routes suivantes, en utilisant les fonctions de l'étape 1 :</p>
-<ul>
-<li><code>GET /api/chansons</code> : retourne la liste (code 200).</li>
-<li><code>POST /api/chansons</code> : ajoute le titre envoyé dans le corps (code 201).</li>
-<li><code>PUT /api/chansons</code> : modifie la chanson dont la position et le nouveau titre sont dans le corps (code 200).</li>
-<li><code>DELETE /api/chansons</code> : supprime la chanson dont la position est dans le corps (code 200).</li>
-</ul>
+<p><strong>7.</strong> Quelle est la valeur de <code>response.ok</code> si le serveur répond avec le code 404 ?</p>
+<p>a) <code>true</code> &nbsp; b) <code>false</code> &nbsp; c) <code>404</code> &nbsp; d) <code>undefined</code></p>
+<details><summary>Voir la réponse</summary><p><strong>b) false</strong>, car <code>ok</code> n'est vrai que pour les codes 2xx.</p></details>
 
-<p><strong>Étape 3 — Partie créative.</strong> Ajoutez une route de votre choix, utile pour une liste de chansons (par exemple, compter les chansons, ou chercher une chanson par son titre). Expliquez en une phrase ce que fait votre route et le code de statut que vous retournez.</p>
+<h3>B. Questions d'explication (exemples)</h3>
 
+<p><strong>E1.</strong> Pourquoi ne met-on normalement pas de données dans le corps (body) d'une requête GET ? Donnez un exemple de l'alternative.</p>
+<details><summary>Voir une réponse attendue</summary><p>Une requête GET sert à <em>lire</em> une ressource, et le corps d'un GET n'est pas prévu par le protocole (il est ignoré ou mal supporté). On met les données dans la query string, par exemple <code>GET /api/chansons?artiste=Beatles</code>.</p></details>
+
+<p><strong>E2.</strong> Pourquoi faut-il vérifier <code>response.ok</code> avant <code>await response.json()</code> ? Qu'arrive-t-il si le serveur répond 404 avec une page d'erreur HTML ?</p>
+<details><summary>Voir une réponse attendue</summary><p>Si la réponse n'est pas du JSON valide, <code>response.json()</code> échoue et génère une erreur. La vérification de <code>ok</code> permet de traiter l'échec proprement, sans essayer d'extraire des données qui n'existent pas.</p></details>
+
+<p><strong>E3.</strong> Expliquez la différence entre <code>npm start</code> et <code>npm run dev</code>, en lien avec le fichier <code>package.json</code>.</p>
+<details><summary>Voir une réponse attendue</summary><p>Les deux lisent la section <code>scripts</code>. <code>npm start</code> lance <code>node server.js</code>, pour la production. <code>npm run dev</code> lance <code>nodemon server.js</code>, qui redémarre le serveur à chaque modification, pour le développement.</p></details>
+
+<h3>C. Problème de programmation en plusieurs étapes (exemple)</h3>
+<p><strong>Étape 1 — Couche de données (<code>model/chansons.js</code>).</strong> Tableau privé de chansons (chaînes de caractères). Exportez <code>getChansons()</code>, <code>addChanson(titre)</code>, <code>updateChanson(index, titre)</code> et <code>deleteChanson(index)</code>.</p>
+<p><strong>Étape 2 — Routes (<code>server.js</code>).</strong> <code>GET /api/chansons</code> (200), <code>POST /api/chansons</code> avec le titre dans le corps (201), <code>PUT /api/chansons</code> avec l'index et le titre dans le corps (200), <code>DELETE /api/chansons</code> avec l'index dans le corps (200).</p>
+<p><strong>Étape 3 — Partie créative.</strong> Ajoutez une route utile pour une liste de chansons, expliquez-la en une phrase et donnez le code de statut retourné.</p>
 <details><summary>Voir la solution de référence (étapes 1 et 2)</summary>
 <pre><code>// model/chansons.js
 let chansons = [];
@@ -137,13 +140,116 @@ app.delete('/api/chansons', (request, response) => {
 app.listen(process.env.PORT);</code></pre>
 </details>
 
-<h2>5. Conseils de révision</h2>
-<ul>
-<li>Refaites les exemples du cours sans les copier : c'est ce qui vous prépare aux problèmes nouveaux.</li>
-<li>Pour chaque route, demandez-vous : quelle méthode HTTP, quel chemin, où sont les données (query ou body), et quel code de statut ?</li>
-<li>Pour les explications, donnez toujours un exemple concret quand la question le demande.</li>
-<li>Lisez votre code à voix haute : si vous ne pouvez pas expliquer une ligne, revoyez la notion.</li>
-</ul>
+<h3>D. Tester une API avec Thunder Client ou Postman (exemple)</h3>
+<p>Vous avez une route <code>DELETE /api/chansons</code> qui supprime une chanson selon sa position (<code>index</code>), envoyée dans le corps JSON. Expliquez comment vous la testeriez dans Thunder Client, étape par étape : l'URL, la méthode, le corps JSON, et le code de statut attendu. Comment vérifieriez-vous que la suppression a bien fonctionné ?</p>
+<details><summary>Voir une réponse attendue</summary>
+<ol>
+<li><strong>URL :</strong> <code>http://localhost:PORT/api/chansons</code> (le port défini dans <code>.env</code>).</li>
+<li><strong>Méthode :</strong> <code>DELETE</code>.</li>
+<li><strong>Corps :</strong> onglet <em>Body</em>, type <em>JSON</em>, avec <code>{ "index": 0 }</code>.</li>
+<li><strong>Statut attendu :</strong> 200.</li>
+<li><strong>Vérification :</strong> envoyer un <code>GET /api/chansons</code> et contrôler que la chanson de la position 0 n'est plus dans la liste.</li>
+</ol></details>
+
+<!-- ==================== GROUPE 0040 ==================== -->
+<h2 id="g0040">Groupe 0040</h2>
+
+<h3>A. QCM (exemples)</h3>
+
+<p><strong>1.</strong> Que retourne une fonction <code>async</code> qui n'a aucune instruction <code>return</code> ?</p>
+<p>a) Une promesse résolue avec <code>undefined</code> &nbsp; b) Rien &nbsp; c) Une erreur &nbsp; d) Un callback</p>
+<details><summary>Voir la réponse</summary><p><strong>a)</strong> Une fonction <code>async</code> retourne toujours une promesse, même si elle ne retourne rien.</p></details>
+
+<p><strong>2.</strong> Dans un projet Express, quel dossier contient les fichiers statiques servis avec <code>express.static('public')</code> ?</p>
+<p>a) <code>src</code> &nbsp; b) <code>public</code> &nbsp; c) <code>model</code> &nbsp; d) <code>node_modules</code></p>
+<details><summary>Voir la réponse</summary><p><strong>b) public</strong>, par convention dans ce cours.</p></details>
+
+<p><strong>3.</strong> Pourquoi installe-t-on <code>nodemon</code> avec l'option <code>-D</code> ?</p>
+<p>a) Parce que c'est une dépendance de développement, inutile en production. &nbsp; b) Pour le déployer. &nbsp; c) Pour l'ignorer dans Git. &nbsp; d) Pour changer le port.</p>
+<details><summary>Voir la réponse</summary><p><strong>a)</strong> <code>nodemon</code> ne sert qu'à développer. On ne l'utilise pas en production.</p></details>
+
+<p><strong>4.</strong> Dans l'URL <code>/api/films/12</code>, que représente <code>12</code> si la route est définie comme <code>/api/films/:id</code> ?</p>
+<p>a) Un fragment &nbsp; b) Une query string &nbsp; c) Un paramètre de route (params) &nbsp; d) Un en-tête</p>
+<details><summary>Voir la réponse</summary><p><strong>c)</strong> Une donnée placée dans le chemin de la route, lue avec <code>request.params.id</code>.</p></details>
+
+<p><strong>5.</strong> Quel code de statut est normalement retourné après une suppression réussie avec une réponse vide ?</p>
+<p>a) 200 &nbsp; b) 201 &nbsp; c) 404 &nbsp; d) 500</p>
+<details><summary>Voir la réponse</summary><p><strong>a) 200</strong>, avec <code>response.status(200).end()</code>.</p></details>
+
+<p><strong>6.</strong> Dans <code>fetch()</code>, quelle option sert à ajouter des données dans le corps de la requête ?</p>
+<p>a) <code>body</code> &nbsp; b) <code>data</code> &nbsp; c) <code>payload</code> &nbsp; d) <code>send</code></p>
+<details><summary>Voir la réponse</summary><p><strong>a) body</strong>, qui doit être une chaîne de caractères (par exemple <code>JSON.stringify(data)</code>).</p></details>
+
+<p><strong>7.</strong> Quelle commande crée un fichier <code>package.json</code> dans un nouveau dossier de projet ?</p>
+<p>a) <code>npm init</code> &nbsp; b) <code>npm start</code> &nbsp; c) <code>node init</code> &nbsp; d) <code>npm update</code></p>
+<details><summary>Voir la réponse</summary><p><strong>a) npm init</strong>, qui pose quelques questions et crée le fichier.</p></details>
+
+<h3>B. Questions d'explication (exemples)</h3>
+
+<p><strong>E1.</strong> Expliquez pourquoi <code>setTimeout(() => console.log('B'), 0)</code> n'arrête pas le reste du programme.</p>
+<details><summary>Voir une réponse attendue</summary><p><strong>setTimeout</strong> enregistre la fonction pour plus tard et laisse le programme continuer. Le code qui suit s'exécute donc en premier, et le callback n'est appelé qu'après, quand le programme a fini son travail en cours.</p></details>
+
+<p><strong>E2.</strong> Quelle différence y a-t-il entre le code 200 et le code 201 quand on répond à une requête ? Donnez un exemple de chaque.</p>
+<details><summary>Voir une réponse attendue</summary><p><strong>200</strong> indique un succès général, par exemple une lecture ou une suppression réussie. <strong>201</strong> indique qu'une nouvelle ressource a été créée, par exemple après un POST qui ajoute un film.</p></details>
+
+<p><strong>E3.</strong> Expliquez la différence entre <code>response.status</code> et <code>response.ok</code> dans un <code>fetch()</code>.</p>
+<details><summary>Voir une réponse attendue</summary><p><code>response.status</code> donne le code exact (par exemple 404). <code>response.ok</code> est un booléen : vrai si le code est entre 200 et 299, faux sinon.</p></details>
+
+<h3>C. Problème de programmation en plusieurs étapes (exemple)</h3>
+<p><strong>Étape 1 — Couche de données (<code>model/films.js</code>).</strong> Tableau privé de films (chaînes de caractères). Exportez <code>getFilms()</code>, <code>addFilm(titre)</code> et <code>deleteFilm(index)</code>.</p>
+<p><strong>Étape 2 — Routes (<code>server.js</code>).</strong> <code>GET /api/films</code> (200), <code>POST /api/films</code> avec le titre dans le corps (201), <code>DELETE /api/films</code> avec l'index dans le corps (200).</p>
+<p><strong>Étape 3 — Partie créative.</strong> Ajoutez une route de votre choix utile pour une liste de films (par exemple, compter les films, ou retourner le premier film). Expliquez-la en une phrase et donnez le code de statut retourné.</p>
+<details><summary>Voir la solution de référence (étapes 1 et 2)</summary>
+<pre><code>// model/films.js
+let films = [];
+
+export function getFilms() {
+    return films;
+}
+
+export function addFilm(titre) {
+    films.push(titre);
+}
+
+export function deleteFilm(index) {
+    films.splice(index, 1);
+}
+
+// server.js
+import 'dotenv/config';
+import express, { json } from 'express';
+import { getFilms, addFilm, deleteFilm } from './model/films.js';
+
+const app = express();
+app.use(json());
+
+app.get('/api/films', (request, response) => {
+    response.status(200).json(getFilms());
+});
+
+app.post('/api/films', (request, response) => {
+    addFilm(request.body.titre);
+    response.status(201).end();
+});
+
+app.delete('/api/films', (request, response) => {
+    deleteFilm(request.body.index);
+    response.status(200).end();
+});
+
+app.listen(process.env.PORT);</code></pre>
+</details>
+
+<h3>D. Tester une API avec Thunder Client ou Postman (exemple)</h3>
+<p>Vous avez une route <code>POST /api/films</code> qui ajoute un film dont le titre est dans le corps JSON. Expliquez comment vous la testeriez dans Postman, étape par étape : l'URL, la méthode, le corps JSON, le code attendu, puis comment vérifier que le film a bien été ajouté.</p>
+<details><summary>Voir une réponse attendue</summary>
+<ol>
+<li><strong>URL :</strong> <code>http://localhost:PORT/api/films</code>.</li>
+<li><strong>Méthode :</strong> <code>POST</code>.</li>
+<li><strong>Corps :</strong> onglet <em>Body</em>, type <em>raw</em> / <em>JSON</em>, avec <code>{ "titre": "Inception" }</code>.</li>
+<li><strong>Statut attendu :</strong> 201.</li>
+<li><strong>Vérification :</strong> envoyer un <code>GET /api/films</code> et contrôler que « Inception » apparaît dans la liste.</li>
+</ol></details>
 
 </body>
 </html>
